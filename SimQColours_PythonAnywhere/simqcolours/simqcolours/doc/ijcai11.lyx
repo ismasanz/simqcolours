@@ -1,0 +1,1188 @@
+#LyX file created by tex2lyx 2.0.6
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+%%%% ijcai11.tex
+
+\typeout{IJCAI-11 Instructions for Authors}
+
+% These are the instructions for authors for IJCAI-11.
+% They are the same as the ones for IJCAI-07 with superficical wording
+%   changes only.
+
+
+% The file ijcai11.sty is the style file for IJCAI-11 (same as ijcai07.sty).
+\usepackage{ijcai11}
+
+% Use the postscript times font!
+\usepackage{times}
+
+% the following package is optional:
+%\usepackage{latexsym} 
+
+% Following comment is from ijcai97-submit.tex:
+% The preparation of these files was supported by Schlumberger Palo Alto
+% Research, AT\&T Bell Laboratories, and Morgan Kaufmann Publishers.
+% Shirley Jowell, of Morgan Kaufmann Publishers, and Peter F.
+% Patel-Schneider, of AT\&T Bell Laboratories collaborated on their
+% preparation.
+
+% These instructions can be modified and used in other conferences as long
+% as credit to the authors and supporting agencies is retained, this notice
+% is not changed, and further modification or reuse is not restricted.
+% Neither Shirley Jowell nor Peter F. Patel-Schneider can be listed as
+% contacts for providing assistance without their prior permission.
+
+% To use for other conferences, change references to files and the
+% conference appropriate and use other authors, contacts, publishers, and
+% organizations.
+% Also change the deadline and address for returning papers and the length and
+% page charge instructions.
+% Put where the files are available in the appropriate places.
+
+\title{IJCAI--11 Formatting Instructions\thanks{These match the formatting instructions of IJCAI-07. The support of IJCAI, Inc. is acknowledged.}}
+\author{Toby Walsh \\
+NICTA and UNSW\\
+Sydney, Australia \\
+pcchair11@ijcai.org}
+
+
+\end_preamble
+\use_default_options false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\paperfontsize default
+\spacing single
+\use_hyperref 0
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+maketitle
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+
+The 
+\shape italic
+IJCAI--11 Proceedings
+\family default
+\series default
+\shape default
+ will be printed from electronic manuscripts submitted by the authors. The electronic manuscript will also be included in the online version of the proceedings. This paper provides the style instructions. 
+\end_layout
+
+\begin_layout Section
+
+Introduction
+\end_layout
+
+\begin_layout Standard
+
+The 
+\shape italic
+IJCAI--11 Proceedings
+\family default
+\series default
+\shape default
+ will be printed from electronic manuscripts submitted by the authors. These must be PDF (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+ Portable Document Format
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+) files formatted for 8-1/2
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\begin_inset Formula $\times$
+\end_inset
+
+ 11
+\begin_inset Formula $''$
+\end_inset
+
+ paper.
+\end_layout
+
+\begin_layout Subsection
+
+Length of Papers
+\end_layout
+
+\begin_layout Standard
+
+Each accepted full paper is allocated six pages in the conference proceedings. Up to two additional pages may be purchased at a price of $275 per page for any accepted paper. However, all 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+ submissions
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ must be a maximum of six pages in length.
+\end_layout
+
+\begin_layout Subsection
+
+Word Processing Software
+\end_layout
+
+\begin_layout Standard
+
+As detailed below, IJCAI has prepared and made available a set of LaTeX macros and a Microsoft Word template for use in formatting your paper. If you are using some other word processing software (such as WordPerfect, etc.), please follow the format instructions given below and ensure that your final paper looks as much like this sample as possible.
+\end_layout
+
+\begin_layout Section
+
+Style and Format
+\end_layout
+
+\begin_layout Standard
+
+LaTeX and Word style files that implement these instructions can be retrieved electronically. (See Appendix
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "stylefiles"
+
+\end_inset
+
+ for instructions on how to obtain these files.)
+\end_layout
+
+\begin_layout Subsection
+
+Layout
+\end_layout
+
+\begin_layout Standard
+
+Print manuscripts two columns to a page, in the manner in which these instructions are printed. The exact dimensions for pages are: 
+\end_layout
+
+\begin_layout Itemize
+
+left and right margins: .75
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+column width: 3.375
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+gap between columns: .25
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+top margin---first page: 1.375
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+top margin---other pages: .75
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+bottom margin: 1.25
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+column height---first page: 6.625
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+column height---other pages: 9
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+All measurements assume an 8-1/2
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\begin_inset Formula $\times$
+\end_inset
+
+ 11
+\begin_inset Formula $''$
+\end_inset
+
+ page size. For A4-size paper, use the given top and left margins, column width, height, and gap, and modify the bottom and right margins as necessary.
+\end_layout
+
+\begin_layout Subsection
+
+Format of Electronic Manuscript
+\end_layout
+
+\begin_layout Standard
+
+For the production of the electronic manuscript, you must use Adobe's 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+ Portable Document Format
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ (PDF). A PDF file can be generated, for instance, on Unix systems using 
+\family typewriter
+ps2pdf
+\family default
+\series default
+\shape default
+ or on Windows systems using Adobe's Distiller. There is also a website with free software and conversion services: 
+\family typewriter
+http://www.ps2pdf.com/
+\family default
+\series default
+\shape default
+. For reasons of uniformity, use of Adobe's 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+ Times Roman
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ font is strongly suggested. In LaTeX2e
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{}
+\end_layout
+
+\end_inset
+
+, this is accomplished by putting 
+\end_layout
+
+\begin_layout Quote
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+mbox{
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+
+\begin_inset Formula $\backslash$
+\end_inset
+
+usepackage{times}
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+in the preamble.
+\begin_inset Foot
+status collapsed
+
+
+\begin_layout Standard
+
+You may want also to use the package 
+\family typewriter
+latexsym
+\family default
+\series default
+\shape default
+, which defines all symbols known from the old LaTeX version.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+Additionally, it is of utmost importance to specify the American 
+\series bold
+letter
+\family default
+\series default
+\shape default
+ format (corresponding to 8-1/2
+\begin_inset Formula $''$
+\end_inset
+
+ 
+\begin_inset Formula $\times$
+\end_inset
+
+ 11
+\begin_inset Formula $''$
+\end_inset
+
+) when formatting the paper. When working with 
+\family typewriter
+dvips
+\family default
+\series default
+\shape default
+, for instance, one should specify 
+\family typewriter
+-t letter
+\family default
+\series default
+\shape default
+.
+\end_layout
+
+\begin_layout Subsection
+
+Title and Author Information
+\end_layout
+
+\begin_layout Standard
+
+Center the title on the entire width of the page in a 14-point bold font. Below it, center the author name(s) in a 12-point bold font, and then center the address(es) in a 12-point regular font. Credit to a sponsoring agency can appear on the first page as a footnote.
+\end_layout
+
+\begin_layout Subsubsection
+
+Blind Review
+\end_layout
+
+\begin_layout Standard
+
+In order to make blind reviewing possible, authors must omit their names and affiliations when submitting the paper for review. In place of names and affiliations, provide a list of content areas. When referring to one's own work, use the third person rather than the first person. For example, say, 
+\begin_inset Quotes eld
+\end_inset
+
+Previously, Gottlob
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+shortcite
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+gottlob:nonmon
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ has shown that\SpecialChar \ldots{}
+
+\begin_inset Quotes erd
+\end_inset
+
+, rather than, 
+\begin_inset Quotes eld
+\end_inset
+
+In our previous work
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "gottlob:nonmon"
+
+\end_inset
+
+, we have shown that\SpecialChar \ldots{}
+
+\begin_inset Quotes erd
+\end_inset
+
+ Try to avoid including any information in the body of the paper or references that would identify the authors or their institutions. Such information can be added to the final camera-ready version for publication.
+\end_layout
+
+\begin_layout Subsection
+
+Abstract
+\end_layout
+
+\begin_layout Standard
+
+Place the abstract at the beginning of the first column 3
+\begin_inset Formula $''$
+\end_inset
+
+ from the top of the page, unless that does not leave enough room for the title and author information. Use a slightly smaller width than in the body of the paper. Head the abstract with 
+\begin_inset Quotes eld
+\end_inset
+
+Abstract
+\begin_inset Quotes erd
+\end_inset
+
+ centered above the body of the abstract in a 12-point bold font. The body of the abstract should be in the same font as the body of the paper.
+\end_layout
+
+\begin_layout Standard
+
+The abstract should be a concise, one-paragraph summary describing the general thesis and conclusion of your paper. A reader should be able to learn the purpose of the paper and the reason for its importance from the abstract. The abstract should be no more than 200 words long.
+\end_layout
+
+\begin_layout Subsection
+
+Text
+\end_layout
+
+\begin_layout Standard
+
+The main body of the text immediately follows the abstract. Use 10-point type in a clear, readable font with 1-point leading (10 on 11).
+\end_layout
+
+\begin_layout Standard
+
+Indent when starting a new paragraph, except after major headings.
+\end_layout
+
+\begin_layout Subsection
+
+Headings and Sections
+\end_layout
+
+\begin_layout Standard
+
+When necessary, headings should be used to separate major sections of your paper. (These instructions use many headings to demonstrate their appearance; your paper should have fewer headings.)
+\end_layout
+
+\begin_layout Subsubsection
+
+Section Headings
+\end_layout
+
+\begin_layout Standard
+
+Print section headings in 12-point bold type in the style shown in these instructions. Leave a blank space of approximately 10 points above and 4 points below section headings. Number sections with arabic numerals.
+\end_layout
+
+\begin_layout Subsubsection
+
+Subsection Headings
+\end_layout
+
+\begin_layout Standard
+
+Print subsection headings in 11-point bold type. Leave a blank space of approximately 8 points above and 3 points below subsection headings. Number subsections with the section number and the subsection number (in arabic numerals) separated by a period.
+\end_layout
+
+\begin_layout Subsubsection
+
+Subsubsection Headings
+\end_layout
+
+\begin_layout Standard
+
+Print subsubsection headings in 10-point bold type. Leave a blank space of approximately 6 points above subsubsection headings. Do not number subsubsections.
+\end_layout
+
+\begin_layout Subsubsection
+
+Special Sections
+\end_layout
+
+\begin_layout Standard
+
+You may include an unnumbered acknowledgments section, including acknowledgments of help from colleagues, financial support, and permission to publish.
+\end_layout
+
+\begin_layout Standard
+
+Any appendices directly follow the text and look like sections, except that they are numbered with capital letters instead of arabic numerals.
+\end_layout
+
+\begin_layout Standard
+
+The references section is headed 
+\begin_inset Quotes eld
+\end_inset
+
+References,
+\begin_inset Quotes erd
+\end_inset
+
+ printed in the same style as a section heading but without a number. A sample list of references is given at the end of these instructions. Use a consistent format for references, such as that provided by BibTeX. The reference list should not include unpublished work.
+\end_layout
+
+\begin_layout Subsection
+
+Citations
+\end_layout
+
+\begin_layout Standard
+
+Citations within the text should include the author's last name and the year of publication, for example
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "gottlob:nonmon"
+
+\end_inset
+
+. Append lowercase letters to the year in cases of ambiguity. Treat multiple authors as in the following examples:
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "abelson-et-al:scheme"
+
+\end_inset
+
+ or
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "bgf:Lixto"
+
+\end_inset
+
+ (for more than two authors) and 
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "brachman-schmolze:kl-one"
+
+\end_inset
+
+ (for two authors). If the author portion of a citation is obvious, omit it, e.g., Nebel
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+shortcite
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+nebel:jair-2000
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+. Collapse multiple citations as follows:
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "gls:hypertrees,levesque:functional-foundations"
+
+\end_inset
+
+. 
+\begin_inset CommandInset citation
+LatexCommand nocite
+after ""
+key "abelson-et-al:scheme"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand nocite
+after ""
+key "bgf:Lixto"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand nocite
+after ""
+key "brachman-schmolze:kl-one"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand nocite
+after ""
+key "gottlob:nonmon"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand nocite
+after ""
+key "gls:hypertrees"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand nocite
+after ""
+key "levesque:functional-foundations"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand nocite
+after ""
+key "levesque:belief"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand nocite
+after ""
+key "nebel:jair-2000"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+Footnotes
+\end_layout
+
+\begin_layout Standard
+
+Place footnotes at the bottom of the page in a 9-point font. Refer to them with superscript numbers.
+\begin_inset Foot
+status collapsed
+
+
+\begin_layout Standard
+
+This is how your footnotes should appear.
+\end_layout
+
+\end_inset
+
+ Separate them from the text by a short line.
+\begin_inset Foot
+status collapsed
+
+
+\begin_layout Standard
+
+Note the line separating these footnotes from the text.
+\end_layout
+
+\end_inset
+
+ Avoid footnotes as much as possible; they interrupt the flow of the text.
+\end_layout
+
+\begin_layout Section
+
+Illustrations
+\end_layout
+
+\begin_layout Standard
+
+Place all illustrations (figures, drawings, tables, and photographs) throughout the paper at the places where they are first discussed, rather than at the end of the paper. If placed at the bottom or top of a page, illustrations may run across both columns.
+\end_layout
+
+\begin_layout Standard
+
+Illustrations must be rendered electronically or scanned and placed directly in your document. All illustrations should be in black and white, as color illustrations may cause problems. Line weights should be 1/2-point or thicker. Avoid screens and superimposing type on patterns as these effects may not reproduce well.
+\end_layout
+
+\begin_layout Standard
+
+Number illustrations sequentially. Use references of the following form: Figure 1, Table 2, etc. Place illustration numbers and captions under illustrations. Leave a margin of 1/4-inch around the area covered by the illustration and caption. Use 9-point type for captions, labels, and other text in illustrations.
+\end_layout
+
+\begin_layout Section*
+
+Acknowledgments
+\end_layout
+
+\begin_layout Standard
+
+The preparation of these instructions and the LaTeX and BibTeX files that implement them was supported by Schlumberger Palo Alto Research, AT&T Bell Laboratories, and Morgan Kaufmann Publishers. Preparation of the Microsoft Word file was supported by IJCAI. An early version of this document was created by Shirley Jowell and Peter F. Patel-Schneider. It was subsequently modified by Jennifer Ballentine and Thomas Dean, Bernhard Nebel, and Daniel Pagenstecher. These instructions are the same as the ones for IJCAI--05, prepared by Kurt Steinkraus, Massachusetts Institute of Technology, Computer Science and Artificial Intelligence Lab.
+\end_layout
+
+\begin_layout Standard
+\start_of_appendix
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%dummy comment inserted by tex2lyx to ensure that this paragraph is not empty
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+LaTeX and Word Style Files
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "stylefiles"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+The LaTeX and Word style files are available on the IJCAI--11 website, 
+\family typewriter
+http://www.ijcai-11.org/
+\family default
+\series default
+\shape default
+. These style files implement the formatting instructions in this document.
+\end_layout
+
+\begin_layout Standard
+
+The LaTeX files are 
+\family typewriter
+ijcai11.sty
+\family default
+\series default
+\shape default
+ and 
+\family typewriter
+ijcai11.tex
+\family default
+\series default
+\shape default
+, and the BibTeX files are 
+\family typewriter
+named.bst
+\family default
+\series default
+\shape default
+ and 
+\family typewriter
+ijcai11.bib
+\family default
+\series default
+\shape default
+. The LaTeX style file is for version 2e of LaTeX, and the BibTeX style file is for version 0.99c of BibTeX (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+ not
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ version 0.98i). The 
+\family typewriter
+ijcai11.sty
+\family default
+\series default
+\shape default
+ file is the same as the 
+\family typewriter
+ijcai07.sty
+\family default
+\series default
+\shape default
+ file used for IJCAI--07.
+\end_layout
+
+\begin_layout Standard
+
+The Microsoft Word style file consists of a single file, 
+\family typewriter
+ijcai11.doc
+\family default
+\series default
+\shape default
+. This template is the same as the one used for IJCAI--07.
+\end_layout
+
+\begin_layout Standard
+
+These Microsoft Word and LaTeX files contain the source of the present document and may serve as a formatting sample.
+\end_layout
+
+\begin_layout Standard
+
+Further information on using these styles for the preparation of papers for IJCAI--11 can be obtained by contacting 
+\family typewriter
+pcchair11@ijcai.org
+\family default
+\series default
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%% The file named.bst is a bibliography style file for BibTeX 0.99c
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "ijcai11"
+options "named"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

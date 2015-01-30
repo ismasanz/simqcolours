@@ -1,0 +1,1565 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+%%%% ijcai11.tex
+
+\typeout{IJCAI-11 Instructions for Authors}
+
+% These are the instructions for authors for IJCAI-11.
+% They are the same as the ones for IJCAI-07 with superficical wording
+%   changes only.
+
+
+% The file ijcai11.sty is the style file for IJCAI-11 (same as ijcai07.sty).
+\usepackage{ijcai11}
+
+% Use the postscript times font!
+\usepackage{times}
+
+% the following package is optional:
+%\usepackage{latexsym} 
+
+% Following comment is from ijcai97-submit.tex:
+% The preparation of these files was supported by Schlumberger Palo Alto
+% Research, AT\&T Bell Laboratories, and Morgan Kaufmann Publishers.
+% Shirley Jowell, of Morgan Kaufmann Publishers, and Peter F.
+% Patel-Schneider, of AT\&T Bell Laboratories collaborated on their
+% preparation.
+
+% These instructions can be modified and used in other conferences as long
+% as credit to the authors and supporting agencies is retained, this notice
+% is not changed, and further modification or reuse is not restricted.
+% Neither Shirley Jowell nor Peter F. Patel-Schneider can be listed as
+% contacts for providing assistance without their prior permission.
+
+% To use for other conferences, change references to files and the
+% conference appropriate and use other authors, contacts, publishers, and
+% organizations.
+% Also change the deadline and address for returning papers and the length and
+% page charge instructions.
+% Put where the files are available in the appropriate places.
+
+\title{Can we mimic the human ability for color-naming?}
+\author{Carles Escrig Royo\\
+Universitat Jaume I\\
+Castelló de la Plana, País Valencià\\
+al066522@uji.es}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "Can we mimic the human ability for color-naming?"
+\pdf_author "Carles Escrig Royo"
+\pdf_subject "Cognitive processes (SIE019)"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+maketitle
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+An application that computes the approximate description of the perceived
+ color of an image has been developed.
+ Some experiments have been conducted to prove the validity of the descriptions
+ obtained.
+ Finally, some conclusions about the accuracy of the image analysis and
+ the validity of the used QCD model have been draft.
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+In order to make perception usable by consciousness, humans attach labels
+ to remarkable features of stimulus.
+ We bring out essential characteristics of things so that a classification
+ can be performed and further abstract work can be developed.
+ Colour is one of these essential characteristics.
+ Any technology which goal is to reproduce some level of human intelligence,
+ or plainly involves human-machine communication regarding the environment
+ (for instance, assistive technology), must be able to successfully recognize
+ and categorize colours.
+\end_layout
+
+\begin_layout Standard
+A great effort has been done during recent years to mimic the color naming
+ capabilities of humans.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "falomir-museros-gonzalez"
+
+\end_inset
+
+ reviewed at least ten approaches to color-naming using different colour
+ models.
+ These authors have focused on reproducing a cognitive centered colour-naming,
+ in order to achieve a description of colours as close as possible to that
+ of humans.
+ Their approach uses the HSL colour space and defines a model for Qualitative
+ Colour Description (QCD) by dividing the former into intervals.
+ 
+\end_layout
+
+\begin_layout Standard
+The goal of this project is to implement an easy to use application to test
+ extensively the validity of the proposed QCD model.
+ The architecture of the software should be in accordance with principles
+ of the model: 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+designed to be generally adaptable and kept as simple as possible
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Making it available for mobile devices would be a plus.
+\end_layout
+
+\begin_layout Section
+Development
+\end_layout
+
+\begin_layout Subsection
+The application
+\end_layout
+
+\begin_layout Subsubsection
+Overview
+\end_layout
+
+\begin_layout Standard
+The application must take an image as its input and analyze it to extract
+ the most common color.
+ Then apply the QCD colour-naming model of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "falomir-museros-gonzalez"
+
+\end_inset
+
+ to obtain a 
+\emph on
+human understandable 
+\emph default
+linguistic description of the color.
+ The most common color and the 
+\emph on
+obtained description
+\emph default
+ are shown to the user and she is asked to do a review of the result.
+ If the description is not right, user is asked (1) to input her own freely
+ expressed description, and (2) to pick one of the descriptions allowed
+ by this QCD model.
+ Review of the result for a given image can be performed by any number of
+ subjects.
+ The information of the reviews is used to generate basic statistics about
+ the adequateness of the obtained description.
+\end_layout
+
+\begin_layout Subsubsection
+Technology
+\end_layout
+
+\begin_layout Standard
+An application that meets this requirements has been developed using 
+\emph on
+web
+\emph default
+ technologies.
+ The most solid reason to choose this technology is its widespread use and
+ ubiquity, comparable to that of a virtual machine like Java.
+ Almost any machine has a web browser installed, and usually it is a fundamental
+ tool kept up to date.
+\end_layout
+
+\begin_layout Standard
+Commonly the web architecture involves a client web-browser and a server
+ dispensing web pages.
+ With the newest HTML version --five--, the standard has been augmented
+ with new powerful features that enrich the client-side and can be used
+ to operate it independently, like a classical desktop application.
+ We have taken advantage of this features to build a web application that
+ can be read both from a local filesystem or a web server and operated without
+ access to the Internet.
+\end_layout
+
+\begin_layout Standard
+User interface design is done by HTML/CSS, and the logic programming with
+ ECMAScript (mostly known as JavaScript).
+ We have reused libraries and code from other free projects in order to
+ fasten the development:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "PureCSS"
+target "http://purecss.io/"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://purecss.io/"
+target "http://purecss.io/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, a set of responsible CSS modules.
+ Helpful for mobile web development.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Font awesome"
+target "http://fortawesome.github.io/Font-Awesome/"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://fortawesome.github.io/Font-Awesome/"
+target "http://fortawesome.github.io/Font-Awesome/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, a web font that provides scalable vector icons.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "jQuery"
+target "http://jquery.com/"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://jquery.com/"
+target "http://jquery.com/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, the most popular JavaScript library for client-side DOM manipulation.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Underscore.js"
+target "http://underscorejs.org/"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://underscorejs.org/"
+target "http://underscorejs.org/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, a library that provides functional programming support.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Backbone.js"
+target "http://backbonejs.org/"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://backbonejs.org/"
+target "http://backbonejs.org/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, a library with a RESTful JSON interface based on the model–view–presenter
+ (MVP) application design paradigm.
+\end_layout
+
+\begin_layout Standard
+On top of those components we build all the necessary parts for our application.
+ In the next subsections we give some details about the work done.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Colours
+\end_layout
+
+\begin_layout Standard
+The QCD model is defined for the HSL colour space, thus the image colours
+ must be converted from RGB(A) to HSL color space.
+ This can be done easily since HSL is just 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+a rearrangement 
+\emph default
+[of] 
+\emph on
+the geometry of RGB in an attempt to be more intuitive and perceptually
+ relevant...
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\emph on
+\begin_inset CommandInset href
+LatexCommand href
+name "https://en.wikipedia.org/wiki/HSL_and_HSV"
+target "https://en.wikipedia.org/wiki/HSL_and_HSV"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ 
+\emph default
+A fast search on Internet comes up with some conversion methods
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For instance, 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://www.rapidtables.com/convert/color/hsl-to-rgb.htm#doc"
+target "http://www.rapidtables.com/convert/color/hsl-to-rgb.htm#doc"
+
+\end_inset
+
+ (07/11/2013)
+\end_layout
+
+\end_inset
+
+.
+ The QCD model defines valid ranges for each color description, figure 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "fig:Color-categories-(uppercase)"
+
+\end_inset
+
+ shows an overview.
+ Detailed ranges can be found on the relevant paper.
+ In brief, we defined data structures for both colour models, methods for
+ converting between them, and a method to match a colour against a qualitative
+ color description determined by at least 1 range of values for each dimension
+ or channel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/simkin/uji/sie019/projecte/images/hsl.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ranges for color categories (uppercase) and some specific color descriptions
+ (lowercase) of the QCD model.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Color-categories-(uppercase)"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All this has been done as a jQuery plug-in which exports some functions
+ into the jQuery global object.
+ Details can be seen in the source code file 
+\family typewriter
+app/js/jquery.color.js
+\family default
+:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+Range(ini, end, opts)
+\family default
+ Constructor function to build a range object.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+RGBColor(mixed)
+\family default
+ Constructor function to build an RGB color model object.
+ Basically contains the values for each channel, validity ranges, and methods
+ for printing and converting to other models.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+HSLColor(mixed) 
+\family default
+Constructor function to build an HSL color model object, analogous to previous
+ function.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+color_definitions 
+\family default
+An array with all the qualitative color objects defined by the QCD model.
+ Each qualitative color is an object of type 
+\family typewriter
+QColor
+\family default
+, which contains a label --the 
+\emph on
+description
+\emph default
+-- and an array of valid values for each channel of the color model.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+perception(color)
+\family default
+ A function that receives a HSLColor instance as the input parameter and
+ outputs the label of the qualitative color (from 
+\family typewriter
+color_definitions
+\family default
+) which ranges validate against all the input color channels.
+ Given a HSL colour, only one qualitative colour must match, otherwise an
+ error is thrown.
+\end_layout
+
+\begin_layout Subsubsection
+Image analysis
+\end_layout
+
+\begin_layout Standard
+When browser receives the image from the user, we use an HTML5 canvas element
+ to draw the image an gain access to the pixel information.
+ Pixel information is stored in unidimensional array where groups of 4 positions
+ (channels R,G,B,A) represent a single pixel.
+ The array is reorganized to explicitly express its 3 dimensions (alpha
+ is discarted) and then apply the k-means clustering algorithm to find out
+ the 
+\emph on
+k 
+\emph default
+centroids and the pixel assignments.
+ Parameter 
+\emph on
+k 
+\emph default
+is configurable in the user interface and represents the number clusters
+ to ultimately be found on the image.
+ The adequacy of this parameter depends on each image, but a safe default
+ of 4 has been established.
+ We use the Euclidean distance as a measure of proximity.
+ The implementation of the k-means algorithm itself comes from project Figue
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://code.google.com/p/figue/"
+target "http://code.google.com/p/figue/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+; we felt it was better to rely on optimized and well tested code.
+ Moreover, all the work is done on a downscaled version of the original
+ image in order to speed up the clustering.
+ We rely on the native scaling algorithm present in the web browser.
+ It is very good in current Mozilla Firefox 22, but might be different for
+ other vendors.
+ The size for the downscaling might be configured as well.
+\end_layout
+
+\begin_layout Standard
+Methods regarding the analysis of the image have been packaged onto a jQuery
+ plug-in (source is at 
+\family typewriter
+app/js/jquery.canvasimage.js
+\family default
+).
+ The plugin adds a function 
+\family typewriter
+createAnalyzer(resize, k)
+\family default
+ to the jQuery prototype, so that this function might be called from any
+ jQuery wrapped DOM element.
+ Nevertheless calling this function only makes sense when the wrapped DOM
+ element is an 
+\family typewriter
+img
+\family default
+ tag.
+ In that case, the function will return a new 
+\family typewriter
+CanvasImage
+\family default
+ object.
+ This object emits two events:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+'load'
+\family default
+ when the image data has been loaded and resized into the internal canvas,
+ and the object is ready to perform an analysis.
+ When this event triggers, it is save to call 
+\family typewriter
+analyze()
+\family default
+ on the object.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+'analyzed'
+\family default
+ when k-means has ended.
+ Once this event has triggered, results of the k-means algorithm can be
+ found on property 
+\family typewriter
+result
+\family default
+ of the object.
+\end_layout
+
+\begin_layout Standard
+Property
+\family typewriter
+ result
+\family default
+ contains the original k-means result (
+\family typewriter
+assignments
+\family default
+ and 
+\family typewriter
+centroids
+\family default
+) and an additional 
+\family typewriter
+rank
+\family default
+ property.
+ 
+\family typewriter
+rank 
+\family default
+is an array of perceptions sorted by relevance.
+ First object in the array is the most relevant perception, with the percentage
+ of pixels assigned to this perception and the centroids that where classified
+ as belonging to this perception, also in descending relevance.
+\end_layout
+
+\begin_layout Standard
+The result of an image analysis is presented to the user side by side to
+ the analyzed image.
+ It consists of the most relevant perception label (for instance 
+\begin_inset Quotes eld
+\end_inset
+
+Dark red
+\begin_inset Quotes erd
+\end_inset
+
+), shown over a box filled with the color of the winner centroid (the one
+ that got the most number of assignments among all the centroids that fullfill
+ this very same perception label).
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Result-of-an"
+
+\end_inset
+
+ (left) illustrates this.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/simkin/uji/sie019/projecte/images/screen01.png
+	width 45col%
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename /home/simkin/uji/sie019/projecte/images/screen02.png
+	width 46col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+(left) Result of an image analysis presented to the user.
+ (right) Result of image analysis alongside statistics about acceptance,
+ and rank of user free suggestions and user selections from the QCD model
+ available options.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Result-of-an"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Our image analysis presented here is very simple and does not account for
+ color constancy or spatial relations among colors.
+ First reason for this is the size of this project, and second, the expected
+ target of images is going to be fairly plain (closeups of fabrics).
+ To adapt the application to be used with any kind of image, a correction
+ method described by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:journals/tip/Mojsilovic05"
+
+\end_inset
+
+ on section IV could be applied, and then obtain a more real color composition
+ of the image.
+ This might be important if images are coming from low quality mobile pictures
+ (for instance, taken by a visually impaired person).
+\end_layout
+
+\begin_layout Subsubsection
+Layout
+\end_layout
+
+\begin_layout Standard
+The application layout is tied up and controlled by the
+\series bold
+\emph on
+ 
+\series default
+backbone.js
+\emph default
+ framework.
+ The home page (or main screen) lists all the images in the database in
+ the form of a grid (figure 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "fig:Overview-of-the"
+
+\end_inset
+
+), ordered by descending creation time.
+ Some very minimal statistics are shown.
+ Management of each individual image is done by clicking on it.
+ All the information of an image (color analysis, user reviews, etc.) is
+ managed as a backbone model.
+ All models are contained into a backbone collection.
+ The collection is permanently saved in the local storage of the web browser.
+\end_layout
+
+\begin_layout Subsection
+The tests
+\end_layout
+
+\begin_layout Standard
+The design of tests has been very simple.
+ It consisted on the selection of 37 images, each one apparently fitting
+ on one of the 37 color names considered by the QCD model.
+ Each image analysis has been repeated with different parameters, to observe
+ the variation on the results, and avoid saving an uncommon result (a 
+\begin_inset Quotes eld
+\end_inset
+
+hand-operated
+\begin_inset Quotes erd
+\end_inset
+
+ cometee of machines).
+ Finally results have been reviewed by two independent subjects.
+\end_layout
+
+\begin_layout Section
+Experiments
+\end_layout
+
+\begin_layout Standard
+The application successfully has output 
+\emph on
+one 
+\emph default
+perception for all tested images.
+ In general this proves the correct operation of the analysis, and the correct
+ definition of ranges for each qualitative color.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement b
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User's perception acceptance
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Num.
+ of images
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16 (43%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8 (21%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13 (35%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Summary of calculated perceptions acceptance.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Summary-of-calculated"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "tab:Summary-of-calculated"
+
+\end_inset
+
+ summarizes the experiment results.
+ 16 perceptions got a 100% of acceptance among the reviewers.
+ 8 perceptions got a 50% of acceptance.
+ Finally 13 perceptions got a 0% of acceptance.
+ Most of the time perception was accepted by humans, but why was it rejected
+ 35% of the time?
+\end_layout
+
+\begin_layout Standard
+Eventhough any conclusion based on tests done to only two individuals is
+ far from getting any credibility, in our opinion flaws on the QCD model
+ have been revealed.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "fig:6-of-the"
+
+\end_inset
+
+ shows 6 representative cases where computed perception was not accepted
+ by the reviewers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "46col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/simkin/uji/sie019/projecte/images/fail02.png
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+(a)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "46col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/simkin/uji/sie019/projecte/images/fail01.png
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+(b)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "46col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/simkin/uji/sie019/projecte/images/fail04.png
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+(c)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "46col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/simkin/uji/sie019/projecte/images/fail03.png
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+(d)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "46col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/simkin/uji/sie019/projecte/images/fail05.png
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+(e)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "46col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/simkin/uji/sie019/projecte/images/fail06.png
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+(f)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Six of the thirteen not accepted perceptions.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:6-of-the"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We consider (a), (c), and (d) to fall into a common case of a 
+\begin_inset Quotes eld
+\end_inset
+
+fuzzy frontier
+\begin_inset Quotes erd
+\end_inset
+
+ problem in the hue scale.
+ It is quite difficult to solve, and divergences may arise due to cultural
+ differences, display conditions, and subjective perception.
+ It is the less serious of the errors.
+\end_layout
+
+\begin_layout Standard
+We would call case (a) and (e) plainly erroneus, and a bit alarming.
+ Case (a) 
+\family typewriter
+hsl(130, 88%, 32%) 
+\family default
+is an example of how values in the saturation and lightness scales can modify
+ the established intervals of each other.
+ Based on this case we could argue that higher values of saturation influence
+ downward the DARK - RAINBOW lightness frontier.
+ Case (e) 
+\family typewriter
+hsl(300, 12%, 48%) 
+\family default
+is a painfull example of how same values of saturation and lightness are
+ not enough evidence to classify a color in the grayscale category.
+ For some values of hue, for instance 
+\family typewriter
+200
+\family default
+, we would consider the grayscale category acceptable.
+ In this case, whether we are too much influenced by our own perception,
+ or the values of the model are wrong.
+\end_layout
+
+\begin_layout Standard
+We consider case (f) to be more of an analysis error than a model error.
+ In this case most of the image is very dark, an just obtaining the most
+ common color is not enough to find out the right perception.
+ The reason lies on the fact that the color of the few light areas influences
+ greatly the perception of the whole picture, because humans rely on the
+ light areas to infer which the dark color might be.
+ In this case, a previous correction of the image might pose a solution.
+\end_layout
+
+\begin_layout Standard
+Finally, some subjects might think that some variations of a pure rainbow
+ color should deserve their own specific name, like case (d) where the 
+\begin_inset Quotes eld
+\end_inset
+
+dark red
+\begin_inset Quotes erd
+\end_inset
+
+ is suggested to be callled 
+\begin_inset Quotes eld
+\end_inset
+
+brown
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Conclusions and further work
+\end_layout
+
+\begin_layout Standard
+The few experiments done reveal some failures on the analysis of the image
+ and the color description approximation defined by the QCD model.
+ Further work on the analysis should involve previous treatment and correction
+ of the image.
+ We feel the QCD model is a bit harsh trying to keep color-naming as simple
+ as possible.
+ Some color names could be added.
+ Also it would be nice to give a try to a more dynamic interval system,
+ in which frontiers among categories would be influenced by values of the
+ other scales.
+ Anyhow it is crystal clear that more testing should be done to draw any
+ solid conclusion.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/simkin/uji/sie019/projecte/images/full_app.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Overview of the 37 tested images.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Overview-of-the"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Code
+\end_layout
+
+\begin_layout Standard
+The web application can be executed loading the 
+\family typewriter
+app/index.html 
+\family default
+file in your web browser.
+\end_layout
+
+\begin_layout Subsection*
+Thanks
+\end_layout
+
+\begin_layout Standard
+Project title, proposal and ideas are a direct suggestion of Lledo Museros,
+ from Computer Science and Artificial Intelligence department at University
+ Jaume I.
+ This work has been done as a final course project of 
+\emph on
+Cognitive processes
+\emph default
+ (SIE019), of Master in Intelligent Systems.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "ijcai11"
+options "named"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,39 @@
+from bottle import default_app, route, post, request, static_file
+
+import cPickle as pickle
+import anydbm as dbm
+import atexit
+import datetime
+import sys
+
+
+@route("/api/surveys")
+def api():
+    try: 
+        data = db[request.remote_addr]
+        return pickle.loads(data)
+    except KeyError:
+        return {}
+
+@post("/api/surveys")
+def api_post():
+    print >>sys.stderr, "Got a POST " + request.json
+    log.write("%s|%s|%s" % (datetime.datetime.now().time().isoformat(), request.remote_addr, str(request.json)))
+    log.write("\n")
+    db[request.remote_addr] = pickle.dumps(request.json)
+
+@route('<path:path>')
+def callback(path):
+    if path == "/":
+        path = "/index.html"
+    return static_file(path, root="/home/isanz/simqcolours/simqcolours/app")
+
+log = open("/home/isanz/surveys.log", "w+")
+atexit.register(lambda: log and log.close())
+
+db = dbm.open("/home/isanz/surveys.db", "c")
+atexit.register(lambda: db and db.close())
+
+print >>sys.stderr, "Starting up, log=" + log + " db=" + db
+application = default_app()
+

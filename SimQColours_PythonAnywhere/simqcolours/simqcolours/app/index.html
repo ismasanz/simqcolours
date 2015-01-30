@@ -1,0 +1,224 @@
+<!DOCTYPE html manifest="manifest.appcache">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>SimQColours App</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/pure-min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/colours.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body role="application">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+    <div class="content pure-g-r">
+
+        <!-- static header -->
+        <div class="header pure-u-1">
+            <div class="pure-menu pure-menu-open pure-menu-horizontal">
+                <a href="" class="pure-menu-heading">SimQColour App</a>
+
+                <ul>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- main content -->
+        <div class="content pure-u-1">
+            <!-- main pictures grid -->
+            <div class="pure-g-r" aria-live="polite" id="picture-list"></div>
+            <!-- a single picture display -->
+            <div aria-live="polite" id="picture-survey"></div>
+        </div>
+
+        <!-- footer / status -->
+        <div class="footer pure-u-1" aria-live="polite"></div>
+
+    </div>
+
+<script type="text/template" id="thumbnail-template">
+<div class="empty photo-box">
+    <img>
+    <aside class="photo-box-caption">
+        <span class="perception"><%- perception %></span>
+        <span class="<%- klass %>" <%- hasStats %>><%- agree_pct %>%</span>
+        <span class="ratio" <%- hasStats %>>[<%- agreed %>/<%- people %>]</span>
+    </aside>
+</div>
+</script>
+
+<script type="text/template" id="picture-template">
+<!-- overlay -->
+<div class="pure-g-r" id="overlay">
+    <!-- top zone of the sidebar -->
+    <div class="pure-u sidebar sidebar-top picture-menu" role="menu">
+        <nav class="pure-menu pure-menu-open">
+            <ul>
+                <li class="reset">
+                    <i class="icon-refresh"></i>
+                    <span>Recompute</span>
+                </li>
+                <li class="delete">
+                    <i class="icon-trash"></i>
+                    <span>Delete</span>
+                </li>
+                <li class="options">
+                    <i class="icon-cog"></i>
+                    <span>Options</span>
+                    <form class="pure-form pure-form-aligned" id="config-form" style="display: none;">
+                        <div class="pure-control-group">
+                            <label for="config_kmeans_k">Num. clusters</label>
+                            <input id="config_kmeans_k" type="number" min="1" max="15" step="1" />
+                        </div>
+                        <div class="pure-control-group">
+                            <label for="config_resize_side">Resize to</label>
+                            <input id="config_resize_side" type="number" min="10" />
+                            <span class="label"> px.</span>
+                        </div>
+                    </form>
+                </li>
+                <li class="close">
+                    <i class="icon-arrow-left"></i>
+                    <span>Close</span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- main picture display zone -->
+    <div class="pure-u-1 content">
+
+        <!-- picture submit and drop-zone -->
+        <div class="picture-submit" <%= data ? 'hidden' : '' %>>
+            <div class="drop-zone">
+                <h3>Select a file or drop it here</h3>
+                <form class="pure-form">
+                    <input class="file" type="file" name="files[]" accept="image/*">
+                </form>
+                <aside class="l-box">
+                    <p><i class="icon-cog"></i> Please, check the options <em>before</em> selecting a picture.</p>
+                    <dl>
+                        <dt>Num. clusters</dt>
+                        <dd>The number of clusters to use in the kmeans algorithm.</dd>
+                        <dt>Resize to</dt>
+                        <dd>Before the analysis, the picture will be resized to this amount in order to speed up the process. Max. recommended: 250 px.</dd>
+                    </dl>
+                    <p><i class="icon-refresh"></i> After an image has been selected and analyzed, you still can change the options and recompute the perception, but any existing surveys will be lost.</p>
+                </aside>
+            </div>
+        </div>
+
+        <!-- actual picture display -->
+        <div class="picture-display photo-box" <%= data ? '' : 'hidden' %>>
+            <img>
+        </div>
+
+        <!-- picture stats container -->
+        <div class="picture-stats"></div>
+    </div>
+
+    <!-- bottom zone of the sidebar -->
+    <div class="pure-u sidebar sidebar-bottom picture-survey">
+        <!-- survey -->
+        <form class="pure-form l-box">
+            <!-- stop survey button -->
+            <button class="pure-button pure-button-incognito cancel" type="button">
+                <i class="icon-remove"></i>
+            </button>
+
+            <fieldset class="result">
+                <legend class="pure-hidden-phone pure-hidden-tablet">Computed description</legend>
+                <div class="pure-g">
+                    <div class="pure-u-1-2 l-centered">
+                        <p class="perception"></p>
+                    </div>
+                    <div class="pure-u-1-2 l-centered">
+                        <button class="pure-button pure-button-success yes">
+                            <i class="icon-thumbs-up yes"></i>
+                        </button>
+                        <button class="pure-button pure-button-error no">
+                            <i class="icon-thumbs-down no"></i>
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="suggested">
+                <legend class="pure-hidden-phone pure-hidden-tablet">Your description</legend>
+                <div class="pure-g">
+                    <div class="pure-u-2-3 l-centered">
+                        <input name="suggested" placeholder="My perception..." type="text">
+                    </div>
+                    <div class="pure-u-1-3 l-centered">
+                        <button class="pure-button pure-button-success suggested">
+                            <i class="icon-ok"></i>
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="selected">
+                <legend class="pure-hidden-phone pure-hidden-tablet">Pick the best fit description</legend>
+                <div class="pure-g">
+                    <div class="pure-u-2-3 l-centered">
+                        <select name="selected" class="pure-input-medium"></select>
+                    </div>
+                    <div class="pure-u-1-3 l-centered">
+                        <button class="pure-button pure-button-success selected">
+                            <i class="icon-ok"></i>
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="finished l-centered l-box"><p>Thanks for your opinion!</p></div>
+
+        <div class="new-survey l-centered l-box">
+            <button class="pure-button pure-button-primary new-survey">Add a new opinion</button>
+        </div>
+
+    </div>
+
+</div>
+<!-- end of overlay -->
+</script>
+
+<script type="text/template" id="picture-stats">
+<div class="hero">
+    <h1 class="pure-u-1 l-centered perception" style="background-color: <%- perception_hex %>; color: <%- font_color %>">
+        <%- perception %>
+        <div class="color-codes pure-hidden-phone">
+            <span class="rgb"><%- rgb %></span>
+            <span class="hsl"><%- hsl %></span>
+        </div>
+    </h1>
+    <h2 class="pure-u-1 l-centered agreed">
+        <p><span class="<%- klass %>"><%- agree_pct %>%</span> people <%= agree ? 'agreed' : 'disagreed' %> [<%- agreed %> of <%- count %>]</p>
+    </h2>
+    <!-- tables with stats -->
+    <div class="hero-cta pure-u-1 l-centered details"></div>
+</div>
+</script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script src="js/vendor/underscore-min.js"></script>
+        <script src="js/vendor/backbone-min.js"></script>
+        <script src="js/vendor/backbone.localStorage-min.js"></script>
+        <script src="js/plugins.min.js"></script>
+        <script src="js/webapp.js"></script>
+        </body>
+</html>

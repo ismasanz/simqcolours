@@ -1,0 +1,15 @@
+{
+    "version": "1",
+    "name": "SimQColours App",
+    "launch_path": "/index.html",
+    "description": "Firefox OS webapp to analyze qualitative colors",
+    "icons": {
+        "144": "apple-touch-icon-144x144-precomposed.png"
+    },
+    "developer": {
+        "name": "Carles Escrig Royo",
+        "url": "http://www4.uji.es/~al066522/"
+    },
+    "installs_allowed_from": ["*"],
+    "default_locale": "en"
+}
