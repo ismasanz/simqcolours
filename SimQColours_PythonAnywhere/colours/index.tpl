@@ -241,6 +241,19 @@ $( document ).ready(function() {
 </select>
 </p>
 <p>
+<strong>Please rate the confidence you have in your answer / <span lang="es">Selecciona qué confianza tienes en tu respuesta, de 1 (ninguna confianza) a 5 (confianza total)</span></strong>
+<table style="text-align:center;">
+<tr style="font-style: italic;"><th>Not at all<br>confident</th><th colspan="3" /> <th>Extremely<br>Confident</th></tr>
+<tr><th style="min-width:50px">1</th><th style="min-width:50px">2</th><th style="min-width:50px">3</th><th style="min-width:50px">4</th><th style="min-width:50px">5</th></tr>
+<tr><td><input type="radio" name="confidence" value="1"/></td>
+    <td><input type="radio" name="confidence" value="2"/></td>
+    <td><input type="radio" name="confidence" value="3"/></td>
+    <td><input type="radio" name="confidence" value="4"/></td>
+    <td><input type="radio" name="confidence" value="5"/></td>
+    </tr>
+</table>
+</p>
+<p>
 <button type="submit" name="submit" value="submit">Submit / Enviar</button>
 </p>
 </form>

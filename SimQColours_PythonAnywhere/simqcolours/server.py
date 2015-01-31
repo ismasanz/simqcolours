@@ -15,13 +15,15 @@ ROOT = "/home/isanz/" # Default for deployment in PythonAnywhere
 @route("/colours/submit")
 def colours_submit():
     variables = request.query.decode()
-    print >>sys.stderr, "colours, vars= %s" % variables
+    print >>sys.stderr, "colours, vars= %s" % variables.allitems()
+    if "confidence" not in variables:
+        variables["confidence"] = -1 
     with open("results.csv", "a+") as f:
         f.write(request.remote_addr)
         f.write(",")
         f.write(datetime.datetime.now().isoformat())
         f.write(",")
-        f.write("%(red)s,%(blue)s,%(green)s,%(name)s,%(adjetivo)s\n" % variables)
+        f.write("%(red)s,%(blue)s,%(green)s,%(name)s,%(adjetivo)s,%(confidence)s\n" % variables)
     redirect("/colours/")
 
 @route("/colours/results")
