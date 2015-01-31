@@ -1,7 +1,8 @@
-from bottle import default_app, route, post, request, static_file, redirect
+from bottle import default_app, route, post, request, static_file, redirect,\
+    SimpleTemplate, template
+from beaker.middleware import SessionMiddleware
 
 import shelve
-import atexit
 import datetime
 import sys
 import json
@@ -13,14 +14,14 @@ ROOT = "/home/isanz/" # Default for deployment in PythonAnywhere
 
 @route("/colours/submit")
 def colours_submit():
-    vars = request.query.decode()
-    print >>sys.stderr, "colours, vars= %s" % vars
+    variables = request.query.decode()
+    print >>sys.stderr, "colours, vars= %s" % variables
     with open("results.csv", "a+") as f:
         f.write(request.remote_addr)
         f.write(",")
         f.write(datetime.datetime.now().isoformat())
         f.write(",")
-        f.write("%(red)s,%(blue)s,%(green)s,%(name)s,%(adjetivo)s\n" % vars)
+        f.write("%(red)s,%(blue)s,%(green)s,%(name)s,%(adjetivo)s\n" % variables)
     redirect("/colours/")
 
 @route("/colours/results")
@@ -54,8 +55,8 @@ def api_post():
     db.close()
     #print >>sys.stderr, "Got a POST, json= %s" % len(json_data)
     meta, data = json_data["data"].split(",")
-    format = meta.split(";")[0].split("/")[1]
-    imgFile = tempfile.NamedTemporaryFile(prefix="img", suffix=".%s" % format, dir="./img", delete=False)
+    fmt = meta.split(";")[0].split("/")[1]
+    imgFile = tempfile.NamedTemporaryFile(prefix="img", suffix=".%s" % fmt, dir="./img", delete=False)
     imgFile.write(base64.b64decode(data))
     imgFile.close()
     json_data["data"] = "file:" + imgFile.name
@@ -64,16 +65,29 @@ def api_post():
         log.write("\n")
     #print >>sys.stderr, "db content:", [(k, len(v)) for k, v in db.iteritems()]
 
+@route("/colours")
+@route("/colours/")
+@route("/colours/index.html")
+def colours_index():
+    s = request.environ.get('beaker.session')
+    s['visit_count'] = s.get('visit_count', 0) + 1
+    s.save()
+    return template(ROOT + "/colours/index.tpl", visit_count=s['visit_count'])
+
 @route('<path:path>')
 def callback(path):
     if path == "/":
-        path = "/index.html"
+        redirect("/index.html")
     if path.startswith("/colours"):
-        if path == "/colours" or path == "/colours/":
-            path = "/colours/index.html"
         return static_file(path, root=ROOT)
     return static_file(path, root=ROOT+"simqcolours/simqcolours/app")
 
 #print >>sys.stderr, "Starting up, log=" + str(log) + " db=" + str(db)
-application = default_app()
+session_opts = {
+    'session.type': 'file',
+    'session.cookie_expires': 300,
+    'session.data_dir': './sessions',
+    'session.auto': True
+}
+application = SessionMiddleware(default_app(), session_opts)
 

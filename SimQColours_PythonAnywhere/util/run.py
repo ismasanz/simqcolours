@@ -4,4 +4,5 @@ import os
  
 import simqcolours.server as server
 server.ROOT = os.path.abspath("..") + "/"
+print server.ROOT
 run(server.application, host='localhost', port=8080)
