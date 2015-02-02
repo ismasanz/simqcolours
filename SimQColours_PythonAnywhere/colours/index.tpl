@@ -5,7 +5,7 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
 <meta charset="ISO-8859-1">
-<title>Guess the Colour. Dale nombre al color</title>
+<title>{{ _("Name the Colour") }}</title>
 	<!-- Mobile Specific Metas
   ================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -199,9 +199,9 @@ $( document ).ready(function() {
 </head>
 <body>
 
-<h1>Guess the Colour / <span lang="es">Dale nombre al color</span></h1>
-<p>A coloured box appears below. please determine first which name fits this colour best, and then choose an adjective for the colour. </p>
-<p lang="es">Debajo aparece una imagen con un color. Por favor, indica el nombre de ese color de la lista que te proporcionamos y despu�s qu� adjetivo a�adir�as.</p>
+<h1>{{ _("Name the Colour") }}</h1>
+<p>{{ _("A coloured box appears below. please determine first which name fits this colour best, and then choose an adjective for the colour.") }} </p>
+<p lang="es"></p>
 
 <form name="input" action="/colours/submit" method="get">
 
@@ -214,36 +214,36 @@ $( document ).ready(function() {
 <p></p>
 
 <p>
-<strong>Select Colour Name / <span lang="es">Selecciona el nombre del color</span></strong>
+<strong>{{ _("Select colour name") }}</strong>
 <select name="name">
-<option value="black">Black / negro</option>
-<option  value="grey">Grey / gris</option>
-<option value="white">White / blanco</option>
-<option  value="red">Red / rojo</option>
-<option  value="orange">Orange / naranja</option>
-<option  value="yellow">Yellow / amarillo</option>
-<option  value="green">Green / verde</option>
-<option  value="turquoise">Turquoise / turquesa</option>
-<option  value="blue">Blue / azul</option>
-<option  value="purple">Purple / p�rpura</option>
-<option  value="pink">Pink / rosa</option>
+<option value="black">{{ _("Black") }}</option>
+<option  value="grey">{{ _("Grey") }}</option>
+<option value="white">{{ _("White") }}</option>
+<option  value="red">{{ _("Red") }}</option>
+<option  value="orange">{{ _("Orange") }}</option>
+<option  value="yellow">{{ _("Yellow") }}o</option>
+<option  value="green">{{ _("Green") }}</option>
+<option  value="turquoise">{{ _("Turquoise") }}</option>
+<option  value="blue">{{ _("Blue") }}</option>
+<option  value="purple">{{ _("Purple") }}</option>
+<option  value="pink">{{ _("Pink") }}</option>
 </select>
 </p>
 
 <p>
-<strong>Select the adjective for the colour / <span lang="es">Selecciona el adjetivo para el color</span></strong>
+<strong>{{ _("Select the adjective for the colour") }}</strong>
 
 <select name="adjetivo">
-<option value="none">None / ninguno</option>
-<option value="dark">Dark / oscuro</option>
-<option value="light">Light / claro</option>
-<option value="pale">Pale / p�lido</option>
+<option value="none">{{ _("None") }}</option>
+<option value="dark">{{ _("Dark") }}</option>
+<option value="light">{{ _("Light") }}</option>
+<option value="pale">{{ _("Pale") }}</option>
 </select>
 </p>
 <p>
-<strong>Please rate the confidence you have in your answer / <span lang="es">Selecciona qué confianza tienes en tu respuesta, de 1 (ninguna confianza) a 5 (confianza total)</span></strong>
+<strong>{{ _("Please rate the confidence you have in your answer") }}</strong>
 <table style="text-align:center;">
-<tr style="font-style: italic;"><th>Not at all<br>confident</th><th colspan="3" /> <th>Extremely<br>Confident</th></tr>
+<tr style="font-style: italic;"><th>{{ _("Not at all confident") }}</th><th colspan="3" /> <th>{{ _("Extremely Confident") }}</th></tr>
 <tr><th style="min-width:50px">1</th><th style="min-width:50px">2</th><th style="min-width:50px">3</th><th style="min-width:50px">4</th><th style="min-width:50px">5</th></tr>
 <tr><td><input type="radio" name="confidence" value="1"/></td>
     <td><input type="radio" name="confidence" value="2"/></td>

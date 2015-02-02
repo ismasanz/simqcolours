@@ -1,6 +1,8 @@
 from bottle import default_app, route, post, request, static_file, redirect,\
     SimpleTemplate, template
 from beaker.middleware import SessionMiddleware
+from bottle.ext.i18n import I18NPlugin, I18NMiddleware, i18n_defaults, i18n_view, i18n_template
+
 
 import shelve
 import datetime
@@ -67,29 +69,37 @@ def api_post():
         log.write("\n")
     #print >>sys.stderr, "db content:", [(k, len(v)) for k, v in db.iteritems()]
 
-@route("/colours")
 @route("/colours/")
 @route("/colours/index.html")
 def colours_index():
     s = request.environ.get('beaker.session')
     s['visit_count'] = s.get('visit_count', 0) + 1
     s.save()
+    #return i18n_template(ROOT + "/colours/index.tpl", visit_count=s['visit_count'], function="i18n_template")
     return template(ROOT + "/colours/index.tpl", visit_count=s['visit_count'])
 
 @route('<path:path>')
 def callback(path):
     if path == "/":
         redirect("/index.html")
+    if path == "/colours":
+        redirect("/colours/index.html")
     if path.startswith("/colours"):
         return static_file(path, root=ROOT)
     return static_file(path, root=ROOT+"simqcolours/simqcolours/app")
 
-#print >>sys.stderr, "Starting up, log=" + str(log) + " db=" + str(db)
-session_opts = {
-    'session.type': 'file',
-    'session.cookie_expires': 300,
-    'session.data_dir': './sessions',
-    'session.auto': True
-}
-application = SessionMiddleware(default_app(), session_opts)
-
+def init(root="/home/isanz"):
+    global ROOT
+    global application
+    ROOT = root
+    i18n_defaults(SimpleTemplate, request)
+    #print >>sys.stderr, "Starting up, log=" + str(log) + " db=" + str(db)
+    session_opts = {
+        'session.type': 'file',
+        'session.cookie_expires': 300,
+        'session.data_dir': './sessions',
+        'session.auto': True
+    }
+    
+    app = I18NMiddleware(default_app(), I18NPlugin(domain='messages', default='en', locale_dir=ROOT+'colours/locale'))
+    application = SessionMiddleware(app, session_opts)
