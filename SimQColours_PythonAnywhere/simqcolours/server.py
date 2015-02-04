@@ -1,9 +1,4 @@
-from bottle import default_app, route, post, request, static_file, redirect,\
-    SimpleTemplate, template
-from beaker.middleware import SessionMiddleware
-from bottle.ext.i18n import I18NPlugin, I18NMiddleware, i18n_defaults, i18n_view, i18n_template
-
-
+import csv
 import shelve
 import datetime
 import sys
@@ -12,20 +7,39 @@ import base64
 import tempfile
 import shutil
 
+from bottle import default_app, route, post, request, static_file, redirect,\
+    SimpleTemplate, template, TEMPLATE_PATH
+from beaker.middleware import SessionMiddleware
+from bottle.ext.i18n import I18NPlugin, I18NMiddleware, i18n_defaults, i18n_view, i18n_template
+
 ROOT = "/home/isanz/" # Default for deployment in PythonAnywhere
 
 @route("/colours/submit")
 def colours_submit():
     variables = request.query.decode()
     print >>sys.stderr, "colours, vars= %s" % variables.allitems()
+    s = request.environ['beaker.session']
+    if variables["initSession"] == '1':
+        s['age'] = variables["age"]
+        s['sex'] = variables["sex"]
+        s.save()
+        return redirect("/colours")
     if "confidence" not in variables:
         variables["confidence"] = -1 
     with open("results.csv", "a+") as f:
-        f.write(request.remote_addr)
-        f.write(",")
-        f.write(datetime.datetime.now().isoformat())
-        f.write(",")
-        f.write("%(red)s,%(blue)s,%(green)s,%(name)s,%(adjetivo)s,%(confidence)s\n" % variables)
+        writer = csv.writer(f)
+        row = [datetime.datetime.now().isoformat(), 
+               request.remote_addr, 
+               request.headers["Accept-Language"],
+               s["age"],
+               s["sex"],
+               variables["red"],
+               variables["green"],
+               variables["blue"],
+               variables["name"],
+               variables["adjetivo"],
+               variables["confidence"]]
+        writer.writerow(row)
     redirect("/colours/")
 
 @route("/colours/results")
@@ -72,8 +86,8 @@ def api_post():
 @route("/colours/")
 @route("/colours/index.html")
 def colours_index():
-    s = request.environ.get('beaker.session')
-    s['visit_count'] = s.get('visit_count', 0) + 1
+    s = request.environ['beaker.session']
+    s['visit_count'] = s.get('visit_count', -1) + 1
     s.save()
     #return i18n_template(ROOT + "/colours/index.tpl", visit_count=s['visit_count'], function="i18n_template")
     return template(ROOT + "/colours/index.tpl", visit_count=s['visit_count'])
@@ -91,12 +105,13 @@ def callback(path):
 def init(root="/home/isanz"):
     global ROOT
     global application
+    TEMPLATE_PATH.insert(0, root)
     ROOT = root
     i18n_defaults(SimpleTemplate, request)
     #print >>sys.stderr, "Starting up, log=" + str(log) + " db=" + str(db)
     session_opts = {
         'session.type': 'file',
-        'session.cookie_expires': 300,
+        'session.cookie_expires': 30,
         'session.data_dir': './sessions',
         'session.auto': True
     }
