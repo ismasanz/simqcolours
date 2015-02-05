@@ -4,7 +4,7 @@ function rgbToHex(r, g, b) {
 }
 
 function show_message(msg) {
-	$('<div class="feedback">' + msg + '</div>').insertBefore("#mainHeader").delay(3000).fadeOut(function() { this.remove(); });
+	$('<div class="feedback">' + msg + '</div>').insertBefore("#feedback").delay(3000).fadeOut(function() { this.remove(); });
 }
 
 
@@ -47,8 +47,8 @@ $( document ).ready(function() {
 <div id="box" style="width:200px;height:200px;"></div>
 
 <p>
-<strong>{{ _("Select colour name") }}</strong>
-<select name="name">
+<label for="name">{{ _("Select colour name") }}</label>
+<select class="u-full-width" id="name" name="name">
 <option value="black">{{ _("Black") }}</option>
 <option  value="grey">{{ _("Grey") }}</option>
 <option value="white">{{ _("White") }}</option>
@@ -64,9 +64,8 @@ $( document ).ready(function() {
 </p>
 
 <p>
-<strong>{{ _("Select the adjective for the colour") }}</strong>
-
-<select name="adjetivo">
+<label for="adjetivo">{{ _("Select the adjective for the colour") }}</label>
+<select  class="u-full-width" id="adjetivo" name="adjetivo">
 <option value="none">{{ _("None") }}</option>
 <option value="dark">{{ _("Dark") }}</option>
 <option value="light">{{ _("Light") }}</option>
@@ -75,8 +74,8 @@ $( document ).ready(function() {
 </p>
 
 <p>
-<strong>{{ _("Please rate the confidence you have in your answer") }}</strong>
-<table style="text-align:center;">
+<label for="confidenceTable">{{ _("Please rate the confidence you have in your answer") }}</label>
+<table style="text-align:center;" id="confidenceTable">
 <tr style="font-style: italic;"><th>{{ _("Not at all confident") }}</th><th colspan="3" /> <th>{{ _("Extremely Confident") }}</th></tr>
 <tr><th style="min-width:50px">1</th><th style="min-width:50px">2</th><th style="min-width:50px">3</th><th style="min-width:50px">4</th><th style="min-width:50px">5</th></tr>
 <tr><td><input type="radio" name="confidence" value="1"/></td>

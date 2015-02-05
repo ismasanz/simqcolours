@@ -8,11 +8,12 @@ import tempfile
 import shutil
 
 from bottle import default_app, route, post, request, static_file, redirect,\
-    SimpleTemplate, template, TEMPLATE_PATH
+    SimpleTemplate, TEMPLATE_PATH, template
 from beaker.middleware import SessionMiddleware
 from bottle.ext.i18n import I18NPlugin, I18NMiddleware, i18n_defaults, i18n_view, i18n_template
 
 ROOT = "/home/isanz/" # Default for deployment in PythonAnywhere
+SUPPORTED_LANGUAGES = ["en", "es"]
 
 @route("/colours/submit")
 def colours_submit():
@@ -82,15 +83,27 @@ def api_post():
         log.write("%s|%s|%s" % (datetime.datetime.now().time().isoformat(), request.remote_addr, json.dumps(json_data)))
         log.write("\n")
     #print >>sys.stderr, "db content:", [(k, len(v)) for k, v in db.iteritems()]
-
+    
+def set_language():
+    langs = request.headers["Accept-Language"].split(",")
+    for l in langs:
+        iso = l.split(";")[0].split("-")[0]
+        if iso in SUPPORTED_LANGUAGES:
+            lang = iso
+            break
+    else:
+        lang = "en"
+    i18n.set_lang(lang)
+    
 @route("/colours/")
 @route("/colours/index.html")
 def colours_index():
     s = request.environ['beaker.session']
     s['visit_count'] = s.get('visit_count', -1) + 1
     s.save()
+    set_language()
     #return i18n_template(ROOT + "/colours/index.tpl", visit_count=s['visit_count'], function="i18n_template")
-    return template(ROOT + "/colours/index.tpl", visit_count=s['visit_count'])
+    return template("colours/index.tpl", visit_count=s['visit_count'], function="i18n_template")
 
 @route('<path:path>')
 def callback(path):
@@ -105,7 +118,9 @@ def callback(path):
 def init(root="/home/isanz"):
     global ROOT
     global application
+    global i18n
     TEMPLATE_PATH.insert(0, root)
+    print TEMPLATE_PATH
     ROOT = root
     i18n_defaults(SimpleTemplate, request)
     #print >>sys.stderr, "Starting up, log=" + str(log) + " db=" + str(db)
@@ -116,5 +131,6 @@ def init(root="/home/isanz"):
         'session.auto': True
     }
     
-    app = I18NMiddleware(default_app(), I18NPlugin(domain='messages', default='en', locale_dir=ROOT+'colours/locale'))
+    i18n =  I18NPlugin(domain='messages', default='en', locale_dir=ROOT+'colours/locale')
+    app = I18NMiddleware(default_app(), i18n)
     application = SessionMiddleware(app, session_opts)

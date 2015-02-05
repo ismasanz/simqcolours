@@ -1,18 +1,17 @@
-<h2>Welcome</h2>
-Before proceeding, please fill in the following
+<h2>{{ _("Welcome") }}</h2>
 
 <div id="userdata">
-<p>Welcome, and thanks for your collaboration in this experiment. Before you begin, please
-fill in the following data about you</p>
- <label for="sex">Gender</label>
+<p>{{ _("Thanks for your collaboration in this experiment. Before you begin, please fill in the following data about you") }}</p>
+<p>{{ _("Remember that you may contribute as many responses as you want") }}</p>
+ <label for="sex">{{_("Gender") }}</label>
  <select class="u-full-width" name="sex" id="sex">
- 	<option value="unknown">Please select...</option>
-    <option value="male">Female</option>
-    <option value="female">Male</option>
+ 	<option value="unknown">{{ _("Please select...") }}</option>
+    <option value="male">{{ _("Female") }}</option>
+    <option value="female">{{ _("Male") }}</option>
   </select>
- <label for="age">Age range</label> 
+ <label for="age">{{ _("Age range") }}</label> 
  <select class="u-full-width" name="age" id="age">
- 	<option value="unknown">Please select...</option>
+ 	<option value="unknown">{{ _("Please select...") }}</option>
     <option value="0-17">0-17</option>
     <option value="18_24">18-24</option>
     <option value="25-33">25-33</option>

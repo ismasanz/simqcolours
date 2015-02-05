@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-02-02 03:30+0100\n"
-"PO-Revision-Date: 2015-02-02 03:31+0100\n"
+"POT-Creation-Date: 2015-02-05 01:15+0100\n"
+"PO-Revision-Date: 2015-02-05 01:16+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -19,11 +19,7 @@ msgstr ""
 "X-Generator: Poedit 1.7.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: colours/index.tpl:8 colours/index.tpl:202
-msgid "Name the Colour"
-msgstr "Da nombre al color"
-
-#: colours/index.tpl:203
+#: colours/get_colour.tpl:40
 msgid ""
 "A coloured box appears below. please determine first which name fits this "
 "colour best, and then choose an adjective for the colour."
@@ -31,85 +27,134 @@ msgstr ""
 "Debajo aparece una imagen con un color. Por favor, indica el nombre de ese "
 "color de la lista que te proporcionamos y después qué adjetivo añadirás."
 
-#: colours/index.tpl:217
+#: colours/get_colour.tpl:50
 msgid "Select colour name"
 msgstr "Selecciona el nombre del color"
 
-#: colours/index.tpl:219
+#: colours/get_colour.tpl:52
 msgid "Black"
 msgstr "Negro"
 
-#: colours/index.tpl:220
+#: colours/get_colour.tpl:53
 msgid "Grey"
 msgstr "Gris"
 
-#: colours/index.tpl:221
+#: colours/get_colour.tpl:54
 msgid "White"
 msgstr "Blanco"
 
-#: colours/index.tpl:222
+#: colours/get_colour.tpl:55
 msgid "Red"
 msgstr "Rojo"
 
-#: colours/index.tpl:223
+#: colours/get_colour.tpl:56
 msgid "Orange"
 msgstr "Naranja"
 
-#: colours/index.tpl:224
+#: colours/get_colour.tpl:57
 msgid "Yellow"
 msgstr "Amarillo"
 
-#: colours/index.tpl:225
+#: colours/get_colour.tpl:58
 msgid "Green"
 msgstr "Verde"
 
-#: colours/index.tpl:226
+#: colours/get_colour.tpl:59
 msgid "Turquoise"
 msgstr "Turquesa"
 
-#: colours/index.tpl:227
+#: colours/get_colour.tpl:60
 msgid "Blue"
 msgstr "Azul"
 
-#: colours/index.tpl:228
+#: colours/get_colour.tpl:61
 msgid "Purple"
 msgstr "Púrpura"
 
-#: colours/index.tpl:229
+#: colours/get_colour.tpl:62
 msgid "Pink"
 msgstr "Rosa"
 
-#: colours/index.tpl:234
+#: colours/get_colour.tpl:67
 msgid "Select the adjective for the colour"
 msgstr "Selecciona el adjetivo para el color"
 
-#: colours/index.tpl:237
+#: colours/get_colour.tpl:69
 msgid "None"
 msgstr "Ninguno"
 
-#: colours/index.tpl:238
+#: colours/get_colour.tpl:70
 msgid "Dark"
 msgstr "Oscuro"
 
-#: colours/index.tpl:239
+#: colours/get_colour.tpl:71
 msgid "Light"
 msgstr "Claro"
 
-#: colours/index.tpl:240
+#: colours/get_colour.tpl:72
 msgid "Pale"
 msgstr "Pálido"
 
-#: colours/index.tpl:244
+#: colours/get_colour.tpl:77
 msgid "Please rate the confidence you have in your answer"
 msgstr "Indica la confianza que tienes en tu respuesta"
 
-#: colours/index.tpl:246
+#: colours/get_colour.tpl:79
 msgid "Not at all confident"
 msgstr "Ninguna confianza"
 
-#: colours/index.tpl:246
+#: colours/get_colour.tpl:79
 msgid "Extremely Confident"
 msgstr "Confianza total"
+
+#: colours/index.tpl:8 colours/index.tpl:38
+msgid "Name the Colour"
+msgstr "Da nombre al color"
+
+#: colours/index.tpl:52
+msgid "Submit"
+msgstr "Enviar"
+
+#: colours/init_session.tpl:1
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: colours/init_session.tpl:4
+msgid ""
+"Thanks for your collaboration in this experiment. Before you begin, please "
+"fill in the following data about you"
+msgstr ""
+"Gracias por colaborar en este experimento. Antes de comenzar, por favor "
+"proporcione la siguiente información"
+
+#: colours/init_session.tpl:6
+msgid "Gender"
+msgstr "Sexo"
+
+#: colours/init_session.tpl:8 colours/init_session.tpl:14
+msgid "Please select..."
+msgstr "Elegir uno..."
+
+#: colours/init_session.tpl:9
+msgid "Female"
+msgstr "Mujer"
+
+#: colours/init_session.tpl:10
+msgid "Male"
+msgstr "Hombre"
+
+#: colours/init_session.tpl:12
+msgid "Age range"
+msgstr "Edad"
+
+#~ msgid ""
+#~ "Thanks for your collaboration in this experiment. Before you begin, "
+#~ "please\n"
+#~ "fill in the following data about you"
+#~ msgstr ""
+#~ "Gracias por colaborar en este experimento. Antes de comenzar, por "
+#~ "favor\n"
+#~ "proporcione la siguiente información"
 
 #~ msgid "Not at all<br>confident"
 #~ msgstr "Ninguna confianza"

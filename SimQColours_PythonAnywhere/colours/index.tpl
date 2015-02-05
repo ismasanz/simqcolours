@@ -35,10 +35,16 @@
 <body>
 
 <div class="container">
-<h1 id="mainHeader">{{ _("Name the Colour")Â }}</h1>
+<h1 id="mainHeader">{{ _("Name the Colour") }}</h1>
+
+<div id="feedback"></div>
 
 <form name="input" action="/colours/submit" method="get">
-
+<div id="debug"></div>
+<script>
+document.write("BROWSER language: " + (window.navigator.userLanguage || window.navigator.language));
+</script>
+TEMPLATE LANGUAGE: {{lang()}}
 % if visit_count == 0:
     <input type="hidden" name="initSession" value="1" />
     % include("colours/init_session.tpl")
@@ -49,7 +55,7 @@
 
 
 <p>
-<button type="submit" name="submit" value="submit">{{ _("Submit") }}</button>
+<button class="button-primary" type="submit" name="submit" value="submit">{{ _("Submit") }}</button>
 </p>
 </form>
 </div>

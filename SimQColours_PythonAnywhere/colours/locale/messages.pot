@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-02-02 03:30+0100\n"
+"POT-Creation-Date: 2015-02-05 01:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,93 +17,127 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: colours/index.tpl:8 colours/index.tpl:202
-msgid "Name the Colour"
-msgstr ""
-
-#: colours/index.tpl:203
+#: colours/get_colour.tpl:40
 msgid ""
 "A coloured box appears below. please determine first which name fits this"
 " colour best, and then choose an adjective for the colour."
 msgstr ""
 
-#: colours/index.tpl:217
+#: colours/get_colour.tpl:50
 msgid "Select colour name"
 msgstr ""
 
-#: colours/index.tpl:219
+#: colours/get_colour.tpl:52
 msgid "Black"
 msgstr ""
 
-#: colours/index.tpl:220
+#: colours/get_colour.tpl:53
 msgid "Grey"
 msgstr ""
 
-#: colours/index.tpl:221
+#: colours/get_colour.tpl:54
 msgid "White"
 msgstr ""
 
-#: colours/index.tpl:222
+#: colours/get_colour.tpl:55
 msgid "Red"
 msgstr ""
 
-#: colours/index.tpl:223
+#: colours/get_colour.tpl:56
 msgid "Orange"
 msgstr ""
 
-#: colours/index.tpl:224
+#: colours/get_colour.tpl:57
 msgid "Yellow"
 msgstr ""
 
-#: colours/index.tpl:225
+#: colours/get_colour.tpl:58
 msgid "Green"
 msgstr ""
 
-#: colours/index.tpl:226
+#: colours/get_colour.tpl:59
 msgid "Turquoise"
 msgstr ""
 
-#: colours/index.tpl:227
+#: colours/get_colour.tpl:60
 msgid "Blue"
 msgstr ""
 
-#: colours/index.tpl:228
+#: colours/get_colour.tpl:61
 msgid "Purple"
 msgstr ""
 
-#: colours/index.tpl:229
+#: colours/get_colour.tpl:62
 msgid "Pink"
 msgstr ""
 
-#: colours/index.tpl:234
+#: colours/get_colour.tpl:67
 msgid "Select the adjective for the colour"
 msgstr ""
 
-#: colours/index.tpl:237
+#: colours/get_colour.tpl:69
 msgid "None"
 msgstr ""
 
-#: colours/index.tpl:238
+#: colours/get_colour.tpl:70
 msgid "Dark"
 msgstr ""
 
-#: colours/index.tpl:239
+#: colours/get_colour.tpl:71
 msgid "Light"
 msgstr ""
 
-#: colours/index.tpl:240
+#: colours/get_colour.tpl:72
 msgid "Pale"
 msgstr ""
 
-#: colours/index.tpl:244
+#: colours/get_colour.tpl:77
 msgid "Please rate the confidence you have in your answer"
 msgstr ""
 
-#: colours/index.tpl:246
+#: colours/get_colour.tpl:79
 msgid "Not at all confident"
 msgstr ""
 
-#: colours/index.tpl:246
+#: colours/get_colour.tpl:79
 msgid "Extremely Confident"
+msgstr ""
+
+#: colours/index.tpl:8 colours/index.tpl:38
+msgid "Name the Colour"
+msgstr ""
+
+#: colours/index.tpl:52
+msgid "Submit"
+msgstr ""
+
+#: colours/init_session.tpl:1
+msgid "Welcome"
+msgstr ""
+
+#: colours/init_session.tpl:4
+msgid ""
+"Thanks for your collaboration in this experiment. Before you begin, "
+"please fill in the following data about you"
+msgstr ""
+
+#: colours/init_session.tpl:5
+msgid "Gender"
+msgstr ""
+
+#: colours/init_session.tpl:7 colours/init_session.tpl:13
+msgid "Please select..."
+msgstr ""
+
+#: colours/init_session.tpl:8
+msgid "Female"
+msgstr ""
+
+#: colours/init_session.tpl:9
+msgid "Male"
+msgstr ""
+
+#: colours/init_session.tpl:11
+msgid "Age range"
 msgstr ""
 
