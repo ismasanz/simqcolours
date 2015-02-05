@@ -4,13 +4,16 @@ function rgbToHex(r, g, b) {
 }
 
 function show_message(msg) {
+	msg = msg.replace("{cnt}", {{visit_count}});
 	$('<div class="feedback">' + msg + '</div>').insertBefore("#feedback").delay(3000).fadeOut(function() { this.remove(); });
 }
 
-
 function do_feedback(visit_count) {
 	if (visit_count == 1) {
-		show_message("The first thing!");
+		show_message('{{ _("You named your first colour! Remember that you can submit as many colours as you want") }}');
+	}
+	else if (visit_count % 5 == 0) {
+		show_message('{{ _("You already named {cnt} colours! Great!") }}');
 	}
 }
 

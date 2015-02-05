@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-02-05 01:19+0100\n"
+"POT-Creation-Date: 2015-02-05 05:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,89 +17,99 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: colours/get_colour.tpl:40
+#: colours/get_colour.tpl:13
+msgid ""
+"You named your first colour! Remember that you can submit as many colours"
+" as you want"
+msgstr ""
+
+#: colours/get_colour.tpl:16
+msgid "You already named {cnt} colours! Great!"
+msgstr ""
+
+#: colours/get_colour.tpl:43
 msgid ""
 "A coloured box appears below. please determine first which name fits this"
 " colour best, and then choose an adjective for the colour."
 msgstr ""
 
-#: colours/get_colour.tpl:50
+#: colours/get_colour.tpl:53
 msgid "Select colour name"
 msgstr ""
 
-#: colours/get_colour.tpl:52
+#: colours/get_colour.tpl:55
 msgid "Black"
 msgstr ""
 
-#: colours/get_colour.tpl:53
+#: colours/get_colour.tpl:56
 msgid "Grey"
 msgstr ""
 
-#: colours/get_colour.tpl:54
+#: colours/get_colour.tpl:57
 msgid "White"
 msgstr ""
 
-#: colours/get_colour.tpl:55
+#: colours/get_colour.tpl:58
 msgid "Red"
 msgstr ""
 
-#: colours/get_colour.tpl:56
+#: colours/get_colour.tpl:59
 msgid "Orange"
 msgstr ""
 
-#: colours/get_colour.tpl:57
+#: colours/get_colour.tpl:60
 msgid "Yellow"
 msgstr ""
 
-#: colours/get_colour.tpl:58
+#: colours/get_colour.tpl:61
 msgid "Green"
 msgstr ""
 
-#: colours/get_colour.tpl:59
+#: colours/get_colour.tpl:62
 msgid "Turquoise"
 msgstr ""
 
-#: colours/get_colour.tpl:60
+#: colours/get_colour.tpl:63
 msgid "Blue"
 msgstr ""
 
-#: colours/get_colour.tpl:61
+#: colours/get_colour.tpl:64
 msgid "Purple"
 msgstr ""
 
-#: colours/get_colour.tpl:62
+#: colours/get_colour.tpl:65
 msgid "Pink"
 msgstr ""
 
-#: colours/get_colour.tpl:67
+#: colours/get_colour.tpl:70
 msgid "Select the adjective for the colour"
 msgstr ""
 
-#: colours/get_colour.tpl:69
+#: colours/get_colour.tpl:72
 msgid "None"
 msgstr ""
 
-#: colours/get_colour.tpl:70
+#: colours/get_colour.tpl:73
 msgid "Dark"
 msgstr ""
 
-#: colours/get_colour.tpl:71
+#: colours/get_colour.tpl:74
 msgid "Light"
 msgstr ""
 
-#: colours/get_colour.tpl:72
+#: colours/get_colour.tpl:75
 msgid "Pale"
 msgstr ""
 
-#: colours/get_colour.tpl:77
+#: colours/get_colour.tpl:80
 msgid "Please rate the confidence you have in your answer"
 msgstr ""
 
-#: colours/get_colour.tpl:79
+#: colours/get_colour.tpl:82
 msgid "Not at all confident"
 msgstr ""
 
-#: colours/get_colour.tpl:79
+#: colours/get_colour.tpl:82
 msgid "Extremely Confident"
 msgstr ""
 
@@ -107,7 +117,7 @@ msgstr ""
 msgid "Name the Colour"
 msgstr ""
 
-#: colours/index.tpl:52
+#: colours/index.tpl:53
 msgid "Submit"
 msgstr ""
 
@@ -122,22 +132,26 @@ msgid ""
 msgstr ""
 
 #: colours/init_session.tpl:5
+msgid "Remember that you may contribute as many responses as you want"
+msgstr ""
+
+#: colours/init_session.tpl:6
 msgid "Gender"
 msgstr ""
 
-#: colours/init_session.tpl:7 colours/init_session.tpl:13
+#: colours/init_session.tpl:8 colours/init_session.tpl:14
 msgid "Please select..."
 msgstr ""
 
-#: colours/init_session.tpl:8
+#: colours/init_session.tpl:9
 msgid "Female"
 msgstr ""
 
-#: colours/init_session.tpl:9
+#: colours/init_session.tpl:10
 msgid "Male"
 msgstr ""
 
-#: colours/init_session.tpl:11
+#: colours/init_session.tpl:12
 msgid "Age range"
 msgstr ""
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-02-05 01:15+0100\n"
-"PO-Revision-Date: 2015-02-05 01:16+0100\n"
+"POT-Creation-Date: 2015-02-05 05:12+0100\n"
+"PO-Revision-Date: 2015-02-05 05:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -19,7 +19,19 @@ msgstr ""
 "X-Generator: Poedit 1.7.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: colours/get_colour.tpl:40
+#: colours/get_colour.tpl:13
+msgid ""
+"You named your first colour! Remember that you can submit as many colours as "
+"you want"
+msgstr ""
+"Estupendo, has dado nombre a tu primer color! Recuerda que puedes dar no,bre "
+"a todos los colores que quieras"
+
+#: colours/get_colour.tpl:16
+msgid "You already named {cnt} colours! Great!"
+msgstr "Ya les has dado nombre a {cnt} colores! Muy bien!"
+
+#: colours/get_colour.tpl:43
 msgid ""
 "A coloured box appears below. please determine first which name fits this "
 "colour best, and then choose an adjective for the colour."
@@ -27,83 +39,83 @@ msgstr ""
 "Debajo aparece una imagen con un color. Por favor, indica el nombre de ese "
 "color de la lista que te proporcionamos y después qué adjetivo añadirás."
 
-#: colours/get_colour.tpl:50
+#: colours/get_colour.tpl:53
 msgid "Select colour name"
 msgstr "Selecciona el nombre del color"
 
-#: colours/get_colour.tpl:52
+#: colours/get_colour.tpl:55
 msgid "Black"
 msgstr "Negro"
 
-#: colours/get_colour.tpl:53
+#: colours/get_colour.tpl:56
 msgid "Grey"
 msgstr "Gris"
 
-#: colours/get_colour.tpl:54
+#: colours/get_colour.tpl:57
 msgid "White"
 msgstr "Blanco"
 
-#: colours/get_colour.tpl:55
+#: colours/get_colour.tpl:58
 msgid "Red"
 msgstr "Rojo"
 
-#: colours/get_colour.tpl:56
+#: colours/get_colour.tpl:59
 msgid "Orange"
 msgstr "Naranja"
 
-#: colours/get_colour.tpl:57
+#: colours/get_colour.tpl:60
 msgid "Yellow"
 msgstr "Amarillo"
 
-#: colours/get_colour.tpl:58
+#: colours/get_colour.tpl:61
 msgid "Green"
 msgstr "Verde"
 
-#: colours/get_colour.tpl:59
+#: colours/get_colour.tpl:62
 msgid "Turquoise"
 msgstr "Turquesa"
 
-#: colours/get_colour.tpl:60
+#: colours/get_colour.tpl:63
 msgid "Blue"
 msgstr "Azul"
 
-#: colours/get_colour.tpl:61
+#: colours/get_colour.tpl:64
 msgid "Purple"
 msgstr "Púrpura"
 
-#: colours/get_colour.tpl:62
+#: colours/get_colour.tpl:65
 msgid "Pink"
 msgstr "Rosa"
 
-#: colours/get_colour.tpl:67
+#: colours/get_colour.tpl:70
 msgid "Select the adjective for the colour"
 msgstr "Selecciona el adjetivo para el color"
 
-#: colours/get_colour.tpl:69
+#: colours/get_colour.tpl:72
 msgid "None"
 msgstr "Ninguno"
 
-#: colours/get_colour.tpl:70
+#: colours/get_colour.tpl:73
 msgid "Dark"
 msgstr "Oscuro"
 
-#: colours/get_colour.tpl:71
+#: colours/get_colour.tpl:74
 msgid "Light"
 msgstr "Claro"
 
-#: colours/get_colour.tpl:72
+#: colours/get_colour.tpl:75
 msgid "Pale"
 msgstr "Pálido"
 
-#: colours/get_colour.tpl:77
+#: colours/get_colour.tpl:80
 msgid "Please rate the confidence you have in your answer"
 msgstr "Indica la confianza que tienes en tu respuesta"
 
-#: colours/get_colour.tpl:79
+#: colours/get_colour.tpl:82
 msgid "Not at all confident"
 msgstr "Ninguna confianza"
 
-#: colours/get_colour.tpl:79
+#: colours/get_colour.tpl:82
 msgid "Extremely Confident"
 msgstr "Confianza total"
 
@@ -111,7 +123,7 @@ msgstr "Confianza total"
 msgid "Name the Colour"
 msgstr "Da nombre al color"
 
-#: colours/index.tpl:52
+#: colours/index.tpl:53
 msgid "Submit"
 msgstr "Enviar"
 
@@ -126,6 +138,10 @@ msgid ""
 msgstr ""
 "Gracias por colaborar en este experimento. Antes de comenzar, por favor "
 "proporcione la siguiente información"
+
+#: colours/init_session.tpl:5
+msgid "Remember that you may contribute as many responses as you want"
+msgstr "Recuerda que puedes contribuir tantas respuestas como quieras"
 
 #: colours/init_session.tpl:6
 msgid "Gender"
@@ -152,8 +168,7 @@ msgstr "Edad"
 #~ "please\n"
 #~ "fill in the following data about you"
 #~ msgstr ""
-#~ "Gracias por colaborar en este experimento. Antes de comenzar, por "
-#~ "favor\n"
+#~ "Gracias por colaborar en este experimento. Antes de comenzar, por favor\n"
 #~ "proporcione la siguiente información"
 
 #~ msgid "Not at all<br>confident"

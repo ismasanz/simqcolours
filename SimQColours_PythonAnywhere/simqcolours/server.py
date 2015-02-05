@@ -10,7 +10,8 @@ import shutil
 from bottle import default_app, route, post, request, static_file, redirect,\
     SimpleTemplate, TEMPLATE_PATH, template
 from beaker.middleware import SessionMiddleware
-from bottle.ext.i18n import I18NPlugin, I18NMiddleware, i18n_defaults, i18n_view, i18n_template
+#@UnresolvedImports
+from bottle.ext.i18n import I18NPlugin, I18NMiddleware, i18n_defaults # @UnresolvedImport
 
 ROOT = "/home/isanz/" # Default for deployment in PythonAnywhere
 SUPPORTED_LANGUAGES = ["en", "es"]
@@ -18,7 +19,6 @@ SUPPORTED_LANGUAGES = ["en", "es"]
 @route("/colours/submit")
 def colours_submit():
     variables = request.query.decode()
-    print >>sys.stderr, "colours, vars= %s" % variables.allitems()
     s = request.environ['beaker.session']
     if variables["initSession"] == '1':
         s['age'] = variables["age"]
@@ -120,13 +120,12 @@ def init(root="/home/isanz"):
     global application
     global i18n
     TEMPLATE_PATH.insert(0, root)
-    print TEMPLATE_PATH
     ROOT = root
     i18n_defaults(SimpleTemplate, request)
     #print >>sys.stderr, "Starting up, log=" + str(log) + " db=" + str(db)
     session_opts = {
         'session.type': 'file',
-        'session.cookie_expires': 30,
+        'session.cookie_expires': True,
         'session.data_dir': './sessions',
         'session.auto': True
     }
