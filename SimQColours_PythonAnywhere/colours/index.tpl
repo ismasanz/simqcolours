@@ -41,7 +41,7 @@
 
 <form name="input" action="/colours/submit" method="get">
 
-% if visit_count == 0:
+% if visit_count <= 1:
     <input type="hidden" name="initSession" value="1" />
     % include("colours/init_session.tpl")
 % else:

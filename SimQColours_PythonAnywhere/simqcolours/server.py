@@ -104,7 +104,12 @@ def set_language():
 @route("/colours/index.html")
 def colours_index():
     s = request.environ['beaker.session']
-    s['visit_count'] = s.get('visit_count', -1) + 1
+    print s
+    if s.get('visit_count', 0) > 0 and "sex" not in s:
+        print "Deleting..."
+        s.delete()
+        return redirect("/colours/index.html")
+    s['visit_count'] = s.get('visit_count', 0) + 1
     s['color_count'] = s.get('color_count', 0) 
     s.save()
     set_language()
