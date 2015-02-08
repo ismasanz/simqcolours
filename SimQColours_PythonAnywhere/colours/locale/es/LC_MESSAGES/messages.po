@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-02-05 05:12+0100\n"
-"PO-Revision-Date: 2015-02-05 05:14+0100\n"
+"POT-Creation-Date: 2015-02-05 09:56+0100\n"
+"PO-Revision-Date: 2015-02-05 10:12+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -127,6 +127,10 @@ msgstr "Da nombre al color"
 msgid "Submit"
 msgstr "Enviar"
 
+#: colours/index.tpl:55
+msgid "To finish the experiment, simply close the browser window."
+msgstr "Para acabar el experimento, cierra la ventana del navegador."
+
 #: colours/init_session.tpl:1
 msgid "Welcome"
 msgstr "Bienvenido"
@@ -137,7 +141,7 @@ msgid ""
 "fill in the following data about you"
 msgstr ""
 "Gracias por colaborar en este experimento. Antes de comenzar, por favor "
-"proporcione la siguiente información"
+"proporciona la siguiente información"
 
 #: colours/init_session.tpl:5
 msgid "Remember that you may contribute as many responses as you want"

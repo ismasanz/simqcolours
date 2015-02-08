@@ -10,3 +10,7 @@
 	padding: 15px 10px 15px 50px;
 	font-size: 110%; 
 }
+
+#finishMsg {
+	font-style: italic;
+}

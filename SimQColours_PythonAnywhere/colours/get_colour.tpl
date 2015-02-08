@@ -3,27 +3,27 @@ function rgbToHex(r, g, b) {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 
-function show_message(msg) {
-	msg = msg.replace("{cnt}", {{visit_count}});
+function show_message(msg, count) {
+	msg = msg.replace("{cnt}", count);
 	$('<div class="feedback">' + msg + '</div>').insertBefore("#feedback").delay(3000).fadeOut(function() { this.remove(); });
 }
 
-function do_feedback(visit_count) {
-	if (visit_count == 1) {
+function do_feedback(count) {
+	if (count == 1) {
 		show_message('{{ _("You named your first colour! Remember that you can submit as many colours as you want") }}');
 	}
-	else if (visit_count % 5 == 0) {
-		show_message('{{ _("You already named {cnt} colours! Great!") }}');
+	else if (count > 1 && count % 5 == 0) {
+		show_message('{{ _("You already named {cnt} colours! Great!") }}', count);
 	}
 }
 
 $( document ).ready(function() {
-	visit_count = {{visit_count}};
-	do_feedback(visit_count);
+	color_count = {{color_count}};
+	do_feedback(color_count);
 	
 	var r = Math.round(Math.random() * 256); 
 	var g, b;
-	if (visit_count % 6 == 0) {
+	if (color_count > 1 && color_count % 6 == 0) {
 		g = r;
 		b = r;
 	}
@@ -57,7 +57,7 @@ $( document ).ready(function() {
 <option value="white">{{ _("White") }}</option>
 <option  value="red">{{ _("Red") }}</option>
 <option  value="orange">{{ _("Orange") }}</option>
-<option  value="yellow">{{ _("Yellow") }}o</option>
+<option  value="yellow">{{ _("Yellow") }}</option>
 <option  value="green">{{ _("Green") }}</option>
 <option  value="turquoise">{{ _("Turquoise") }}</option>
 <option  value="blue">{{ _("Blue") }}</option>

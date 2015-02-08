@@ -1,7 +1,6 @@
 import csv
 import shelve
 import datetime
-import sys
 import json
 import base64
 import tempfile
@@ -24,8 +23,12 @@ def colours_submit():
         s['age'] = variables["age"]
         s['sex'] = variables["sex"]
         s.save()
-        return redirect("/colours")
+        return redirect("/colours/")
     if "confidence" not in variables:
+        # Sanity check for invalid sessions
+        if "age" not in s:
+            s.invalidate()
+            return redirect("/colours")
         variables["confidence"] = -1 
     with open("results.csv", "a+") as f:
         writer = csv.writer(f)
@@ -41,6 +44,8 @@ def colours_submit():
                variables["adjetivo"],
                variables["confidence"]]
         writer.writerow(row)
+    s['color_count'] = s.get('color_count', 0) + 1
+    s.save()
     redirect("/colours/")
 
 @route("/colours/results")
@@ -100,10 +105,11 @@ def set_language():
 def colours_index():
     s = request.environ['beaker.session']
     s['visit_count'] = s.get('visit_count', -1) + 1
+    s['color_count'] = s.get('color_count', 0) 
     s.save()
     set_language()
     #return i18n_template(ROOT + "/colours/index.tpl", visit_count=s['visit_count'], function="i18n_template")
-    return template("colours/index.tpl", visit_count=s['visit_count'], function="i18n_template")
+    return template("colours/index.tpl", visit_count=s['visit_count'], color_count=s['color_count'], function="i18n_template")
 
 @route('<path:path>')
 def callback(path):

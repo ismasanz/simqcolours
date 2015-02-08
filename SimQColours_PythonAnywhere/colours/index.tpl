@@ -50,8 +50,10 @@
 % end
 
 <p>
-<button class="button-primary" type="submit" name="submit" value="submit">{{ _("Submit") }}</button>
-</p>
+<button class="button-primary" type="submit" name="submit" value="submit">{{ _("Submit") }}</button><br>
+<span id="finishMsg">
+{{ _("To finish the experiment, simply close the browser window.") }}
+</span>
 </form>
 </div>
 </body>

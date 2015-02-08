@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-02-05 05:12+0100\n"
+"POT-Creation-Date: 2015-02-05 09:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,6 +119,10 @@ msgstr ""
 
 #: colours/index.tpl:53
 msgid "Submit"
+msgstr ""
+
+#: colours/index.tpl:55
+msgid "To finish the experiment, simply close the browser window."
 msgstr ""
 
 #: colours/init_session.tpl:1
